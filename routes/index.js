@@ -13,13 +13,13 @@ var AvatarStorage = require('../helpers/AvatarStorage');
 var storage = AvatarStorage({
     square: true,
     responsive: true,
-    greyscale: true,
+    greyscale: false,
     quality: 90
 });
 
 var limits = {
     files: 1, // allow only 1 file per request
-    fileSize: 1024 * 1024, // 1 MB (max file size)
+    fileSize: 1024 * 1024, // 1 MB (max file  size)
 };
 
 
@@ -61,6 +61,7 @@ router.post('/upload', upload.single(process.env.AVATAR_FIELD), function (req, r
     var file = req.file.filename;
     var matches = file.match(/^(.+?)_.+?\.(.+)$/i);
 
+    //console.log(req.file.filename);
     if (matches) {
         files = _.map(['lg'], function (size) {
             return matches[1] + '_' + size + '.' + matches[2];

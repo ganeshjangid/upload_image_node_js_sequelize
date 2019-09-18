@@ -76,10 +76,10 @@ const AvatarStorage = function (options) {
          }
         });
         // set the upload path
-        this.uploadPath = this.options.responsive ? path.join(UPLOAD_PATH, 'responsive') : UPLOAD_PATH;
+        this.uploadPath = this.options.responsive ? path.join(UPLOAD_PATH) : UPLOAD_PATH;
 
         // set the upload base url
-        this.uploadBaseUrl = this.options.responsive ? path.join(baseUrl, 'responsive') : baseUrl;
+        this.uploadBaseUrl = this.options.responsive ? path.join(baseUrl) : baseUrl;
 
         if (this.options.storage == 'local') {
             // if upload path does not exist, create the upload path structure
